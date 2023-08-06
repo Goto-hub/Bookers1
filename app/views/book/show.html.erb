@@ -1,0 +1,9 @@
+
+<div><a class = title>Title:</a> <%= @list.title %></div>
+
+<div><a class = body>Body:</a> <%= @list.body %></div>
+
+<div>
+  <%= link_to "Edit", edit_book_path(@list.id)  %> | <%= link_to "Back", "/book/#index" %>
+</div>
+

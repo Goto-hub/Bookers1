@@ -1,0 +1,43 @@
+<h1>Books</h1>
+
+<div class="list-wrap">
+  <div class =thread>
+    <a class = title>Title</a>
+    <a class = body>Body</a>
+    </div>
+<% @lists.each do |list| %>
+  <div class="list-box">
+    <div class="list-comment">
+      <a class="list-title"><%= list.title %></a>
+      <a class="list-body"><%= list.body %></a>
+      <a class="button"><%= link_to "Show", book_path(list.id) %></a>
+      <a class="button"><%= link_to "Edit", edit_book_path(list.id)  %></a>
+      <a class="button"><%= link_to "Destroy", book_path(list.id), method: :delete, "data-confirm" => "Are you sure?" %></a>
+    </div>
+  </div>
+<% end %>
+</div>
+
+<h2>New book</h2>
+<% if @list.errors.any? %>
+
+  <%= @list.errors.count %> errors prhibited this book from being saved:
+  <ul>
+    <% @list.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<!-- form_with部分 -->
+<%= form_with model: @list, url: '/book', method: :post do |f| %>
+  <h5>Title</h5>
+  <%= f.text_field :title %>
+	
+  <h5>Body</h5>
+  <%= f.text_area :body %>
+  
+	<div>
+  <%= f.submit 'Create Book' %>
+  </div>
+<% end %>

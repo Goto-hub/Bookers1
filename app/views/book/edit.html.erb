@@ -1,0 +1,19 @@
+<h1>Editing Book</h1>
+
+<%= form_with model: @list do |f| %>
+
+  <h4>Titl</h4>
+  <%= f.text_field :title %>
+  
+  <h4>Body</h4>
+  <%= f.text_area :body %>
+  
+  <div>
+  <%= f.submit 'Update Book' %>
+  </div>
+<% end %>
+
+<div>
+<a class="button"><%= link_to "Show", book_path(@list.id) %></a> |
+<a class="button"><%= link_to "Back", "/book/#index" %></a>
+</div>
