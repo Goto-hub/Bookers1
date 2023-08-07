@@ -20,7 +20,9 @@
 }
 
 header, h1, nav, .list-comment {
-  font-family: 'Kaushan', cursive, sans-serif;
+  /*各ページの名前*/
+   margin: 20px auto 0;
+  font-size: 25px;
 }
 
 header {
@@ -35,6 +37,17 @@ header .headline {
   font-size: 32px;
 }
 
+h2 {
+  margin: 10px auto 0;
+  font-size: 20px;
+}
+
+h5,th {
+  padding: 10px 0 0;
+  font-size: 12px;
+}
+
+
 nav {
   width: 880px;
   margin: 0 auto;
@@ -48,10 +61,41 @@ nav {
   margin: 0 auto;
 }
 
+.button {
+  padding: 10px 5px;
+  color: black;
+}
+
+a {
+  color: black;
+  font-size: 12px;
+}
+
+td {
+   padding: 5px 5px;
+}
+
+p {
+   margin: 15px auto;
+}
+
+body {
+   margin: 30px 30px;
+  
+}
+
 .nav-list-item {
   list-style: none;
   display: inline-block;
   margin: 0 20px;
+}
+
+.show {
+  font-size: 12px;
+}
+
+.line {
+  margin: 0 40px 25px;
 }
 
 main {

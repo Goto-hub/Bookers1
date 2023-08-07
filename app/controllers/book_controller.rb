@@ -14,7 +14,7 @@ class BookController < ApplicationController
       # 詳細画面へリダイレクト
       redirect_to book_path(@list.id)
     else
-      
+      flash[:alert] = "error:Failed to create. Fill in the blanks."
       render :index
       
     end
@@ -42,9 +42,17 @@ class BookController < ApplicationController
   end
   
   def update
-    list = Book.find(params[:id])
-    list.update(list_params)
-    redirect_to book_path(list.id)  
+    @list = Book.find(params[:id])
+    if @list.update(list_params)
+      # フラッシュメッセージを定義し、indexへリダイレクト
+       flash[:notice] = "Book was successfully updated."
+       redirect_to book_path(@list.id)  
+    else
+       flash[:alert] = "error:Failed to update. Fill in the blanks."
+        render :edit
+    end
+    
+    
   end
   
   private

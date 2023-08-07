@@ -1,22 +1,26 @@
 <h1>Books</h1>
 
-<div class="list-wrap">
-  <div class =thread>
-    <a class = title>Title</a>
-    <a class = body>Body</a>
-    </div>
+<table>
+  <thead>
+    <tr>
+     <th>Title</th>
+     <th>Body</th>
+     <th colspan="3"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
 <% @lists.each do |list| %>
-  <div class="list-box">
-    <div class="list-comment">
-      <a class="list-title"><%= list.title %></a>
-      <a class="list-body"><%= list.body %></a>
-      <a class="button"><%= link_to "Show", book_path(list.id) %></a>
-      <a class="button"><%= link_to "Edit", edit_book_path(list.id)  %></a>
-      <a class="button"><%= link_to "Destroy", book_path(list.id), method: :delete, "data-confirm" => "Are you sure?" %></a>
-    </div>
-  </div>
+  <tr>
+      <td><a class="list"><%= list.title %></a></td>
+      <td><a class="list"><%= list.body %></a></td>
+      <td><a class="button"><%= link_to "Show", book_path(list.id) %></a></td>
+      <td><a class="button"><%= link_to "Edit", edit_book_path(list.id)  %></a></td>
+      <td><a class="button"><%= link_to "Destroy", book_path(list.id), method: :delete, "data-confirm" => "Are you sure?" %></a></td>
+  </tr>
 <% end %>
-</div>
+  </tbody>
+</table>
 
 <h2>New book</h2>
 <% if @list.errors.any? %>
@@ -24,7 +28,7 @@
   <%= @list.errors.count %> errors prhibited this book from being saved:
   <ul>
     <% @list.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+      <li>error: <%= message %></li>
     <% end %>
   </ul>
 <% end %>
