@@ -1,14 +1,20 @@
 <div class = line>
-  <a class = show>Title:</a> 
-   <a><%= @list.title %></a>
+  <p class = show>
+    <strong>Title:</strong>
+     <%= @list.title %>
+     </p>
    </div>
 
 <div class = line>
-  <a class = show>Body:</a> 
-  <a><%= @list.body %></a>
+  <p class = show>
+    <strong>Body:</strong>
+    <%= @list.body %>
+    </p>
   </div>
 
 <div>
-  <a><%= link_to "Edit", "/books/#{@list.id}/edit"  %></a> | 
-  <a><%= link_to "Back", "/books" %></a>
+  <p>
+    <%= link_to "Edit", "/books/#{@list.id}/edit"  %> | 
+    <%= link_to "Back", "/books" %>
+  </p>
 </div>

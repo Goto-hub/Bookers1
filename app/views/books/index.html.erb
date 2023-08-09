@@ -12,11 +12,11 @@
   <tbody>
 <% @lists.each do |list| %>
   <tr>
-      <td><a class="list"><%= list.title %></a></td>
-      <td><a class="list"><%= list.body %></a></td>
-      <td><a class="button"><%= link_to "Show", "/books/#{list.id}" %></a></td>
-      <td><a class="button"><%= link_to "Edit", "/books/#{list.id}/edit"  %></a></td>
-      <td><a class="button"><%= link_to "Destroy", "/books/#{list.id}", method: :delete, "data-confirm" => "Are you sure?" %></a></td>
+      <td><%= list.title %></td>
+      <td><%= list.body %></td>
+      <td class="button"><%= link_to "Show", "/books/#{list.id}" %></td>
+      <td class="button"><%= link_to "Edit", "/books/#{list.id}/edit"  %></td>
+      <td class="button"><%= link_to "Destroy", "/books/#{list.id}", method: :delete, "data-confirm" => "Are you sure?" %></td>
   </tr>
 <% end %>
   </tbody>
