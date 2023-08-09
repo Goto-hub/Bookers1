@@ -1,0 +1,14 @@
+<div class = line>
+  <a class = show>Title:</a> 
+   <a><%= @list.title %></a>
+   </div>
+
+<div class = line>
+  <a class = show>Body:</a> 
+  <a><%= @list.body %></a>
+  </div>
+
+<div>
+  <a><%= link_to "Edit", "/books/#{@list.id}/edit"  %></a> | 
+  <a><%= link_to "Back", "/books" %></a>
+</div>

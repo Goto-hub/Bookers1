@@ -1,0 +1,47 @@
+<h1>Books</h1>
+
+<table>
+  <thead>
+    <tr>
+     <th>Title</th>
+     <th>Body</th>
+     <th colspan="3"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+<% @lists.each do |list| %>
+  <tr>
+      <td><a class="list"><%= list.title %></a></td>
+      <td><a class="list"><%= list.body %></a></td>
+      <td><a class="button"><%= link_to "Show", "/books/#{list.id}" %></a></td>
+      <td><a class="button"><%= link_to "Edit", "/books/#{list.id}/edit"  %></a></td>
+      <td><a class="button"><%= link_to "Destroy", "/books/#{list.id}", method: :delete, "data-confirm" => "Are you sure?" %></a></td>
+  </tr>
+<% end %>
+  </tbody>
+</table>
+
+<h2>New book</h2>
+<% if @list.errors.any? %>
+
+  <%= @list.errors.count %> errors prhibited this book from being saved:
+  <ul>
+    <% @list.errors.full_messages.each do |message| %>
+      <li>error: <%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<!-- form_with部分 -->
+<%= form_with model: @list, url: '/books', method: :post do |f| %>
+  <h5>Title</h5>
+  <%= f.text_field :title %>
+	
+  <h5>Body</h5>
+  <%= f.text_area :body %>
+  
+	<div>
+  <%= f.submit 'Create Book' %>
+  </div>
+<% end %>
