@@ -8,7 +8,7 @@ class BooksController < ApplicationController
       # フラッシュメッセージを定義し、詳細画面へリダイレクト
       flash[:notice] = "Book was successfully created."
       # 詳細画面へリダイレクト
-      redirect_to books_path(@list.id)
+      redirect_to book_path(@list.id)
     else
       flash[:alert] = "error:Failed to create. Fill in the blanks."
       render :index
@@ -42,7 +42,7 @@ class BooksController < ApplicationController
     if @list.update(list_params)
       # フラッシュメッセージを定義し、indexへリダイレクト
        flash[:notice] = "Book was successfully updated."
-       redirect_to books_path(@list.id)  
+       redirect_to book_path(@list.id)  
     else
        flash[:alert] = "error:Failed to update. Fill in the blanks."
         render :edit
